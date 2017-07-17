@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Chart.JS</title>
+	<link rel="stylesheet" href="js/chartist.min.css">
+</head>
+<body>
+<div class="ct-chart ct-perfect-fourth"></div>
+<script src="js/chartist.min.js"></script>
+<script src="js/chartist-plugin-accessibility.min.js"></script>
+<script>
+new Chartist.Line('.ct-chart', {
+  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+  series: [
+    {name: 'Income', data: [20000, 30000, 10000, 52000, 30000, 32000, 90000, 12000, 180000, 394000, 30000, 190000]},
+    {name: 'Expenses', data: [10000, 15000, 12000, 14000, 20000, 23000, 22000, 24000, 21000, 18000, 30000, 32000]}
+  ]
+}, {
+  fullWidth: true,
+  width:960,
+  height:500,
+  lineSmooth: true,
+  chartPadding: {
+    right: 20,
+    left: 10
+  },
+  axisX: {
+    labelInterpolationFnc: function(value) {
+      return value.split('').slice(0, 3).join('');
+    }
+  },
+  plugins: [
+    Chartist.plugins.ctAccessibility({
+      caption: 'Fiscal year 2015',
+      seriesHeader: 'business numbers',
+      summary: 'A graphic that shows the business numbers of the fiscal year 2015',
+      valueTransform: function(value) {
+        return value + ' dollar';
+      },
+      // ONLY USE THIS IF YOU WANT TO MAKE YOUR ACCESSIBILITY TABLE ALSO VISIBLE!
+      visuallyHiddenStyles: 'position: absolute; top: 100%; width: 100%; font-size: 11px; overflow-x: auto; background-color: rgba(0, 0, 0, 0.1); padding: 10px'
+    })
+  ]
+});
+
+// This is only used for the example on the Chartist example page
+$chart.parent().css({
+  'margin-bottom': '160px'
+});
+
+// Create a new line chart object where as first parameter we pass in a selector
+// that is resolving to our chart container element. The Second parameter
+// is the actual data object.
+new Chartist.Line('.ct-chart', data, options);
+</script>
+</body>
+</html>
