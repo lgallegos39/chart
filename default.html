@@ -3,56 +3,36 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Chart.JS</title>
-	<link rel="stylesheet" href="js/chartist.min.css">
+	<link rel="stylesheet" href="style/style.css">
+	<link rel="stylesheet" href="js/scss/chartist.css">
+	<link rel="stylesheet" href="js/scss/chartist-plugin-tooltip.css">
 </head>
 <body>
-<div class="ct-chart ct-perfect-fourth"></div>
+<nav>
+	<ul>
+		<li><a href="">Home</a></li>
+		<li><a href="">About</a></li>
+		<li><a href="">Contact</a></li>
+		<li><a href="">Login</a></li>
+		<li><a href="">Signup</a></li>
+	</ul>
+</nav>
+<div class="container">
+<div class="chart"><h1>Very Important Chart</h1><div class="description">This is a simple line graph, it displays data in a line based on the x and y inputs chosen. They can be scaled infinitely and will always display the graph based on the largest number on the chart. Can be animated in mutiple ways.</div>
+<div class="ct-chart ct-perfect-fourth" id="chart1"></div>
+</div>
+<div class="chart"><h1>GPU Performance Chart</h1><div class="description">This is a simple bar graph. The bar graphs can be displayed either horizontally or vertically based on your preference, and can have a large amount of comparisons stacked in multiple arrangements. They can also be animated though in more limited ways</div><div class="ct-chart ct-perfect-fourth" id="chart2"></div></div>
+<div class="chart"><h1>Pie Is Great Chart</h1><div class="description">This is a simple pie chart. Can use numbers not adding up to 100% but is probably best used with 100% in mind. Labels are optional and can be placed inside or outside of the chart. Cannot be animated without using third-party frameworks</div><div class="ct-chart ct-perfect-fourth" id="chart3"></div></div>
+<div class="chart"><h1>Delicious Donuts Chart</h1><div class="description">A slightly cleaner way of viewing pie charts, options are the same as pie charts but this one can be animated to an extent.</div><div class="ct-chart ct-perfect-fourth" id="chart4"></div></div>
+</div>
+<script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/chartist.min.js"></script>
 <script src="js/chartist-plugin-accessibility.min.js"></script>
-<script>
-new Chartist.Line('.ct-chart', {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-  series: [
-    {name: 'Income', data: [20000, 30000, 10000, 52000, 30000, 32000, 90000, 12000, 180000, 394000, 30000, 190000]},
-    {name: 'Expenses', data: [10000, 15000, 12000, 14000, 20000, 23000, 22000, 24000, 21000, 18000, 30000, 32000]}
-  ]
-}, {
-  fullWidth: true,
-  width:960,
-  height:500,
-  lineSmooth: true,
-  chartPadding: {
-    right: 20,
-    left: 10
-  },
-  axisX: {
-    labelInterpolationFnc: function(value) {
-      return value.split('').slice(0, 3).join('');
-    }
-  },
-  plugins: [
-    Chartist.plugins.ctAccessibility({
-      caption: 'Fiscal year 2015',
-      seriesHeader: 'business numbers',
-      summary: 'A graphic that shows the business numbers of the fiscal year 2015',
-      valueTransform: function(value) {
-        return value + ' dollar';
-      },
-      // ONLY USE THIS IF YOU WANT TO MAKE YOUR ACCESSIBILITY TABLE ALSO VISIBLE!
-      visuallyHiddenStyles: 'position: absolute; top: 100%; width: 100%; font-size: 11px; overflow-x: auto; background-color: rgba(0, 0, 0, 0.1); padding: 10px'
-    })
-  ]
-});
-
-// This is only used for the example on the Chartist example page
-$chart.parent().css({
-  'margin-bottom': '160px'
-});
-
-// Create a new line chart object where as first parameter we pass in a selector
-// that is resolving to our chart container element. The Second parameter
-// is the actual data object.
-new Chartist.Line('.ct-chart', data, options);
-</script>
+<script src="js/chartist-plugin-legend.js"></script>
+<script src="js/chartist-plugin-tooltip.min.js"></script>
+<script src="js/chart1.js"></script>
+<script src="js/chart2.js"></script>
+<script src="js/chart3.js"></script>
+<script src="js/chart4.js"></script>
 </body>
 </html>

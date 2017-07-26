@@ -1,0 +1,110 @@
+@import "../js/scss/settings/chartist-settings";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+body {
+	background:#2D2E38;
+	font-family: 'Open Sans';
+	padding: 0px;
+	margin: 0px;
+}
+.ct-label {
+	color: #fff !important;
+}
+.ct-series-gpu .ct-bar {
+  /* Colour of your bars */
+  stroke: #15EA60;
+  /* The width of your bars */
+  stroke-width: 8px;
+  /* Maybe you like round corners on your bars? */
+  stroke-linecap: round;
+}
+nav {
+	background-color: #487178;
+	padding: 0px;
+	margin: 0px;
+	ul {
+		padding:0px;
+		margin: 0px;
+	}
+	li {
+		display: inline-block;
+	}
+	a {
+		display: inline-block;
+		padding: 12px 8px 12px 8px;
+		color: #fff;
+		text-decoration: none;
+		
+	}
+}
+.container {
+	max-width:100%;
+	margin-top: 1%;
+	padding: 1%;
+}
+.chart {
+	width: 49%;
+	display:inline-block;
+  vertical-align: top;
+	h1 {
+		text-align: center;
+		color: #fff;
+	}
+	.ct-chart-pie, .ct-chart-donut {
+		.ct-label {
+      fill: rgb(255, 255, 255);
+      color: rgba(0,0,0,0.4);
+      font-size: 1.5em;
+      line-height: 1;
+    }
+	}
+}
+.description {
+  color: #fff;
+  font-size: 1.1em;
+  margin:0px auto 20px auto;
+  width:90%;
+}
+.ct-legend {
+    position: relative;
+    z-index: 10;
+
+    li {
+        position: relative;
+        padding-left: 23px;
+        margin-bottom: 3px;
+        list-style: none;
+        color: #fff;
+    }
+
+    li:before {
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        left: 0;
+        content: '';
+        border: 3px solid transparent;
+        border-radius: 2px;
+    }
+
+    li.inactive:before {
+        background: transparent;
+    }
+
+    &.ct-legend-inside {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    @for $i from 0 to length($ct-series-colors) {
+        .ct-series-#{$i}:before {
+            background-color: nth($ct-series-colors, $i + 1);
+            border-color: nth($ct-series-colors, $i + 1);
+        }
+    }
+}
+.inner {
+    position: absolute;
+    top: 35% !important;
+    right: 43% !important;
+}
